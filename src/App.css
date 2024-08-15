@@ -1,0 +1,118 @@
+/* dark mode */
+.dark
+, .dark nav {
+    background-color: #181717;
+  }
+  
+  .dark p, .dark span , .dark a {
+    color: #eeeeee;
+    font-weight: bold;
+  }
+  
+  :root {
+    color: rgb(255, 255, 255) !important;
+    font-weight: bold;
+  }
+  
+  p {
+    color: #f0f0f0;
+  }
+  
+  span, h1, h2, h3, li, a {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  h1, h2 {
+    color: rgb(0, 57, 214) !important;
+  }
+  
+  a:hover {
+    transform: translateY(-5px);
+    color: rgb(0, 57, 214) !important;
+  }
+  
+  button {
+    color: white;
+    transition: 0.5s all;
+  }
+  
+  button:hover {
+    transform: translateY(-5px);
+  }
+  
+  body {
+    width: 100%;
+    height: 1000vh;
+  }
+  
+  /* switch settings */
+  .ui-switch {
+    --switch-bg: rgb(135, 150, 165);
+    --switch-width: 48px;
+    --switch-height: 20px;
+    --circle-diameter: 32px;
+    --circle-bg: #0025c9;
+    --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
+  }
+  
+  .ui-switch input {
+    display: none;
+  }
+  
+  .slider {
+    width: var(--switch-width);
+    height: var(--switch-height);
+    background: var(--switch-bg);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .slider .circle {
+    top: calc(var(--circle-inset) * -1);
+    left: 0;
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    position: absolute;
+    background: var(--circle-bg);
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml;base64...");
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+  
+  .slider .circle::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: inherit;
+    transition: all 500ms;
+    opacity: 0;
+  }
+  
+  .ui-switch input:checked + .slider .circle {
+    left: calc(100% - var(--circle-diameter));
+    background-image: url("data:image/svg+xml;base64...");
+  }
+  
+  .ui-switch input:active + .slider .circle::before {
+    transition: 0s;
+    opacity: 1;
+    width: 0;
+    height: 0;
+  }
+  
+  /* Header in dark mode */
+  header {
+    background-color: #ffffff;
+  }
+  
+  .dark header {
+    background-color: #000000;
+  }
+  
