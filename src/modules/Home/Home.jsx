@@ -2,6 +2,7 @@ import Main from "../../Components/Main/Main";
 import Nav from "../../Components/Navbar/Nav";
 
 import { useEffect, useState } from "react";
+import Offers from "../../Components/Offers/Offers";
 
 const Home = () => {
   //  dark mode
@@ -35,6 +36,7 @@ const Home = () => {
       {/* sections */}
       <Nav />
       <Main />
+      <Offers/>
     </div>
   );
 };

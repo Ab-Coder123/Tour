@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -72,7 +72,25 @@ const callsToAction = [
 ];
 
 const Nav = () => {
+  // scroll
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -114,11 +132,12 @@ const Nav = () => {
       </section>
 
       {/* الجزء الثاني */}
-      <section className="font-bold fixed w-full z-50">
-      <nav
+      <section className="sticky-nav font-bold shadow-md">
+        <nav
           aria-label="Global"
-          className="mx-auto flex bg-white dark  text-gray-500
-         items-center justify-between p-2 lg:px-8 "
+          className={`mx-auto flex items-center justify-between p-2 lg:px-8 ${
+            isScrolled ? "bg-white" : "bg-white"
+          }`}
         >
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
@@ -144,11 +163,8 @@ const Nav = () => {
 
           <PopoverGroup className="hidden lg:flex lg:gap-x-12">
             <Popover className="relative">
-              <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-                <a
-                  href=""
-                  className="text-sm font-semibold leading-6 text-gray-900"
-                >
+              <PopoverButton className="flex items-center gap-x-1  leading-6 text-gray-900">
+                <a href="" className=" font-bold leading-6 text-gray-900">
                   Product
                 </a>
                 <ChevronDownIcon
@@ -206,19 +222,19 @@ const Nav = () => {
 
             <a
               href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-semibold leading-6 text-gray-900 "
             >
               Features
             </a>
             <a
               href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-semibold leading-6 text-gray-900 "
             >
               Marketplace
             </a>
             <a
               href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-semibold leading-6 text-gray-900 "
             >
               Company
             </a>
@@ -240,9 +256,13 @@ const Nav = () => {
             </a>
           </div>
           <div>
-            <FontAwesomeIcon className="text-black ml-10  " icon={faShoppingCart} />
+            <FontAwesomeIcon
+              className="icon text-black ml-10  "
+              icon={faShoppingCart}
+            />
           </div>
         </nav>
+
         {/* ___________________________________________ */}
         <Dialog
           open={mobileMenuOpen}

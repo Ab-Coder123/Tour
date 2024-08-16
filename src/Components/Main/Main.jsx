@@ -65,7 +65,7 @@ const Main = () => {
                 </p>
                 <button
                   type="button"
-                  className="text-white bg-purple-500 w-60 sm:w-60 hover:bg-purple-700 border border-purple-600 focus:ring-4 focus:outline-none focus:ring-purple-500 font-medium rounded-lg text-sm px-4 sm:px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-purple-600 dark:bg-purple-800 dark:border-purple-700 dark:text-white dark:hover:bg-purple-700 mb-5 sm:mb-10"
+                  className="text-white bg-indigo-500 w-60 sm:w-60 hover:bg-indigo-700 border border-indigo-600 focus:ring-4 focus:outline-none focus:ring-indigo-500 font-medium rounded-lg text-sm px-4 sm:px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-indigo-600 dark:bg-indigo-800 dark:border-indigo-700 dark:text-white dark:hover:bg-indigo-700 mb-5 sm:mb-10"
                 >
                   MAKE AN APPOINTMENT
                 </button>
